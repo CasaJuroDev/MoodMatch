@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodMatch - Encuesta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="/image/Logo.png" alt="MoodMatch Logo" class="logo">
+        <p>Descubre películas o series según cómo te sientas hoy.</p>
+        <form id="formulario">
+            <label for="emocion">Y hoy, ¿Cómo te sientes?</label>
+            <select name="emocion" id="emocion">
+                <option value="feliz">😊 Feliz</option>
+                <option value="triste">😢 Triste</option>
+                <option value="romántico">💖 Romántico</option>
+                <option value="emocionado">⚡ Emocionado</option>
+            </select>
+
+            <label for="tipo">¿Eres de series? o... ¿Películas?</label>
+            <select name="tipo" id="tipo">
+                <option value="pelicula">🎥 Película</option>
+                <option value="serie">📺 Serie</option>
+            </select>
+
+            <label for="genero">¿Qué género te gustaría ver hoy?</label>
+            <select name="genero" id="genero">
+                <option value="animación">🐭 Animación</option>
+                <option value="romance">💘 Romance</option>
+                <option value="suspenso">🔍 Suspenso</option>
+                <option value="musical">🎶 Musical</option>
+            </select>
+
+            <label for="duracion">¿Cuánto tiempo tienes?</label>
+            <select name="duracion" id="duracion">
+                <option value="1-2h">🕐 1-2 horas</option>
+                <option value="maratón">🔥 Maratón</option>
+            </select>
+
+            <button type="submit">Buscar recomendación</button>
+        </form>
+        <div id="recommendation" style="display: none;"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
