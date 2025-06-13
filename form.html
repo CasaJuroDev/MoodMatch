@@ -9,12 +9,23 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="image/Logo.png" alt="MoodMatch Logo" class="logo-nav">
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html" class="navbar-link">INICIO</a></li>
+            <li><a href="form.html" class="navbar-link">FORMULARIO</a></li>
+            <li><a href="about.html" class="navbar-link">INFORMACIÓN</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <img src="image/Logo.png" alt="MoodMatch Logo" class="logo">
         <p>Descubre películas o series según cómo te sientas hoy.</p>
-        <form id="formulario">
+        <form id="formulario" action="recommendations.html" method="get">
             <label for="emocion">Y hoy, ¿Cómo te sientes?</label>
             <select name="emocion" id="emocion">
+                <option value="" selected disabled>Seleccionar emoción</option>
                 <option value="feliz">😊 Feliz</option>
                 <option value="triste">😢 Triste</option>
                 <option value="romántico">💖 Romántico</option>
@@ -23,12 +34,14 @@
 
             <label for="tipo">¿Eres de series? o... ¿Películas?</label>
             <select name="tipo" id="tipo">
+                <option value="" selected disabled>Seleccionar tipo</option>
                 <option value="pelicula">🎥 Película</option>
                 <option value="serie">📺 Serie</option>
             </select>
 
             <label for="genero">¿Qué género te gustaría ver hoy?</label>
             <select name="genero" id="genero">
+                <option value="" selected disabled>Seleccionar género</option>
                 <option value="animación">🐭 Animación</option>
                 <option value="romance">💘 Romance</option>
                 <option value="suspenso">🔍 Suspenso</option>
@@ -37,13 +50,13 @@
 
             <label for="duracion">¿Cuánto tiempo tienes?</label>
             <select name="duracion" id="duracion">
+                <option value="" selected disabled>Seleccionar duración</option>
                 <option value="1-2h">🕐 1-2 horas</option>
                 <option value="maratón">🔥 Maratón</option>
             </select>
 
             <button type="submit">Buscar recomendación</button>
         </form>
-        <div id="recommendation" style="display: none;"></div>
     </div>
     <script src="script.js"></script>
 </body>

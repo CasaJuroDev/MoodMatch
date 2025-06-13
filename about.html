@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="./image/logo.png" alt="Logo" class="logo-nav">
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.html" class="navbar-link">INICIO</a></li>
+            <li><a href="form.html" class="navbar-link">FORMULARIO</a></li>
+            <li><a href="about.html" class="navbar-link">INFORMACIÓN</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Acerca de las Películas</h2>
+        <div id="movie-data">
+            <h2>Top 5 Películas Mejor Puntuadas (1980)</h2>
+            <table class='movie-table'>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha de Estreno</th>
+                    <th>Puntuación</th>
+                    <th>Ingresos</th>
+                    <th>Género</th>
+                </tr>
+                <tr>
+                    <td>Star Wars: Episode V - The Empire Strikes Back</td>
+                    <td>June 20, 1980 (United States)</td>
+                    <td>8.7</td>
+                    <td>538.4M</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>The Shining</td>
+                    <td>June 13, 1980 (United States)</td>
+                    <td>8.4</td>
+                    <td>47.0M</td>
+                    <td>Drama</td>
+                </tr>
+                <tr>
+                    <td>Raging Bull</td>
+                    <td>December 19, 1980 (United States)</td>
+                    <td>8.2</td>
+                    <td>23.4M</td>
+                    <td>Biography</td>
+                </tr>
+                <tr>
+                    <td>The Blues Brothers</td>
+                    <td>June 20, 1980 (United States)</td>
+                    <td>7.9</td>
+                    <td>115.2M</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>The King and the Mockingbird</td>
+                    <td>March 19, 1980 (France)</td>
+                    <td>7.9</td>
+                    <td>167.5K</td>
+                    <td>Animation</td>
+                </tr>
+            </table>
+
+            <h2>Top 5 Películas Más Vistas por Ingresos (1980)</h2>
+            <table class='movie-table'>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha de Estreno</th>
+                    <th>Puntuación</th>
+                    <th>Ingresos</th>
+                    <th>Género</th>
+                </tr>
+                <tr>
+                    <td>Star Wars: Episode V - The Empire Strikes Back</td>
+                    <td>June 20, 1980 (United States)</td>
+                    <td>8.7</td>
+                    <td>538.4M</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>The Blues Brothers</td>
+                    <td>June 20, 1980 (United States)</td>
+                    <td>7.9</td>
+                    <td>115.2M</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>Superman II</td>
+                    <td>June 19, 1981 (United States)</td>
+                    <td>6.8</td>
+                    <td>108.2M</td>
+                    <td>Action</td>
+                </tr>
+                <tr>
+                    <td>9 to 5</td>
+                    <td>December 19, 1980 (United States)</td>
+                    <td>6.9</td>
+                    <td>103.3M</td>
+                    <td>Comedy</td>
+                </tr>
+                <tr>
+                    <td>Stir Crazy</td>
+                    <td>December 12, 1980 (United States)</td>
+                    <td>6.8</td>
+                    <td>101.3M</td>
+                    <td>Comedy</td>
+                </tr>
+            </table>
+
+            <h2>Gráficos</h2>
+            <canvas id='barChart' style='width: 100%; height: 400px; margin-bottom: 20px;'></canvas>
+            <script>var barChartData = { "type": "bar", "data": { "labels": ["Star Wars: Episode V - The Empire Strikes Back", "The Shining", "Raging Bull", "The Blues Brothers", "The King and the Mockingbird"], "datasets": [{ "label": "Puntuaci\u00f3n", "data": [8.7, 8.4, 8.2, 7.9, 7.9], "backgroundColor": ["#FF6F3C", "#FFC107", "#FF8F5C", "#FFAB91", "#FFD54F"], "borderColor": ["#FF4500", "#FFCA28", "#FF7043", "#FF8A65", "#FFB300"], "borderWidth": 1 }] }, "options": { "scales": { "y": { "beginAtZero": true, "title": { "display": true, "text": "Puntuaci\u00f3n" } }, "x": { "title": { "display": true, "text": "Pel\u00edculas" } } }, "plugins": { "legend": { "position": "top" }, "title": { "display": true, "text": "Top 5 Pel\u00edculas Mejor Puntuadas (1980)" } } } };</script>
+            <canvas id='pieChart' style='width: 100%; height: 400px;'></canvas>
+            <script>var pieChartData = { "type": "pie", "data": { "labels": ["Star Wars: Episode V - The Empire Strikes Back", "The Blues Brothers", "Superman II", "9 to 5", "Stir Crazy"], "datasets": [{ "label": "Ingresos", "data": [538.4, 115.2, 108.2, 103.3, 101.3], "backgroundColor": ["#FF6F3C", "#FFC107", "#FF8F5C", "#FFAB91", "#FFD54F"], "borderColor": ["#FF4500", "#FFCA28", "#FF7043", "#FF8A65", "#FFB300"], "borderWidth": 1 }] }, "options": { "plugins": { "legend": { "position": "right" }, "title": { "display": true, "text": "Top 5 Pel\u00edculas por Ingresos (1980)" } } } };</script>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create bar chart
+            const barCtx = document.getElementById('barChart').getContext('2d');
+            new Chart(barCtx, barChartData);
+
+            // Create pie chart
+            const pieCtx = document.getElementById('pieChart').getContext('2d');
+            new Chart(pieCtx, pieChartData);
+        });
+    </script>
+
+</body>
+
+</html>
