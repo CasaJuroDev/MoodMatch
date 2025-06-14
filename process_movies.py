@@ -1,12 +1,12 @@
-# Importamos las herramientas necesarias (como sacar los juguetes de la caja)
-import pandas as pd  # Para manejar datos como tablas (como Excel)
-import numpy as np   # Para hacer cálculos difíciles
-import json          # Para guardar datos en formato especial (como una carta)
+# Importamos las herramientas necesarias 
+import pandas as pd  
+import numpy as np 
+import json         
 
-# Leemos el archivo CSV (donde están todos los datos de las películas)
+# Leemos el archivo CSV 
 df = pd.read_csv("Nuevo_DataSet.csv", encoding='utf-8')
 
-# Limpiamos los datos (como ordenar juguetes rotos)
+# Limpiamos los datos 
 df["score"] = pd.to_numeric(df["score"], errors="coerce")  # Convertimos puntuaciones a números
 df["gross"] = pd.to_numeric(df["gross"], errors="coerce")  # Convertimos ingresos a números
 df = df.dropna(subset=["name", "score", "gross", "released"])  # Borramos filas con datos faltantes
@@ -14,7 +14,7 @@ df = df.dropna(subset=["name", "score", "gross", "released"])  # Borramos filas 
 print(f"Total de filas después de limpiar: {len(df)}")  # Contamos cuántas películas quedan
 print(f"Filas para 1980: {len(df[df['year'] == 1980])}")  # Contamos solo las de 1980
 
-# Filtramos solo las películas de 1980 (nuestra cápsula del tiempo)
+# Filtramos solo las películas de 1980 
 df_1980 = df[df["year"] == 1980]
 
 # Escogemos las 5 mejores puntuadas y las 5 que más dinero ganaron
@@ -39,7 +39,7 @@ def format_revenue(value):
 top_rated["gross"] = top_rated["gross"].apply(format_revenue)
 top_grossing["gross"] = top_grossing["gross"].apply(format_revenue)
 
-# Función para crear tablas HTML (como dibujar una tabla en tu cuaderno)
+# Función para crear tablas HTML 
 def df_to_html_table(df, title):
     html = f"<h2>{title}</h2>\n"  # Título de la tabla
     html += "<table class='movie-table'>\n"
@@ -65,7 +65,7 @@ bar_chart_data = {
         "datasets": [{
             "label": "Puntuación",
             "data": top_rated["score"].tolist(),  # Puntuaciones
-            "backgroundColor": ["#FF6F3C", "#FFC107", "#FF8F5C", "#FFAB91", "#FFD54F"],  # Colores bonitos
+            "backgroundColor": ["#FF6F3C", "#FFC107", "#FF8F5C", "#FFAB91", "#FFD54F"],  # Colores acordes a la paleta de colores
             "borderColor": ["#FF4500", "#FFCA28", "#FF7043", "#FF8A65", "#FFB300"],
             "borderWidth": 1
         }]
@@ -81,7 +81,7 @@ bar_chart_data = {
     }
 }
 
-# Preparamos datos para el gráfico de pastel (ingresos)
+# Preparamos datos para el gráfico de pastel
 pie_chart_data = {
     "type": "pie",
     "data": {
@@ -100,7 +100,7 @@ pie_chart_data = {
     }
 }
 
-# Juntamos todo el HTML (como pegar hojas en un cuaderno)
+# Juntamos todo el HTML 
 html_content = df_to_html_table(top_rated, "Top 5 Películas Mejor Puntuadas (1980)") + "\n"
 html_content += df_to_html_table(top_grossing, "Top 5 Películas Más Vistas por Ingresos (1980)") + "\n"
 html_content += "<h2>Gráficos</h2>\n"
@@ -109,7 +109,7 @@ html_content += f"<script>var barChartData = {json.dumps(bar_chart_data)};</scri
 html_content += f"<canvas id='pieChart' style='width: 100%; height: 400px;'></canvas>\n"
 html_content += f"<script>var pieChartData = {json.dumps(pie_chart_data)};</script>\n"
 
-# Creamos el HTML final (como decorar la portada del cuaderno)
+# Creamos el HTML final
 html_template = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -140,7 +140,7 @@ html_template = f"""<!DOCTYPE html>
 </html>
 """
 
-# Guardamos todo en "about.html" (¡nuestro cuaderno terminado!)
+# Guardamos todo en "about.html" 
 with open("about.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
